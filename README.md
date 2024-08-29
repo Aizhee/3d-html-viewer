@@ -74,7 +74,7 @@ If you encounter any issues or have suggestions for improvements, please visit t
 
 ## License
 
-Uses GPL-3.0 Licensed code from [dom3d.js](github.com/OrionReed/dom3d) by OrionReed which this project is based on. 
+Uses GPL-3.0 Licensed code from [dom3d.js](https://github.com/OrionReed/dom3d) by OrionReed which this project is based on. 
 
 [GPL-3.0](LICENSE) © Aizhe 2024
 
