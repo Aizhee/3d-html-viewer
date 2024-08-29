@@ -1,0 +1,121 @@
+{
+    "name": "3d-html-viewer",
+    "displayName": "3D HTML Viewer",
+    "description": "Preview your HTML files in 3D.",
+    "version": "1.0.0",
+    "publisher": "Aizhe",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "html",
+        "3D"
+    ],
+    "galleryBanner": {
+        "color": "#1A237E",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Aizhee/3d-html-viewer"
+    },
+    "bugs": {
+        "url": "https://github.com/Aizhee/3d-html-viewer/issues"
+    },
+    "license": "GPL-3.0-only",
+    "icon": "res/img/icon.png",
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.3dhtmlviewer.open",
+                "title": "View HTML in 3D",
+                "category": "3D HTML Viewer",
+                "icon": {
+                        "light": "res/icons/start_preview_light.svg",
+                        "dark": "res/icons/start_preview_dark.svg"
+                },
+                "when": "editorLangId == html && !extension.panelActive",
+                "precondition": "editorLangId == html",
+
+                "description": "Preview your HTML files in 3D."
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.3dhtmlviewer.open",
+                "key": "ctrl+shift+3",
+                "mac": "cmd+shift+3",
+                "when": "resourceLangId == html && !extension.panelActive"
+            }
+        ],
+        "configuration": {
+        "type": "object",
+        "title": "3D HTML Viewer",
+        "properties": {
+            "3dhtmlviewer.zoom": {
+            "type": "number",
+            "default": 0.8,
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The default zoom constant of the camera."
+            },
+            "3dhtmlviewer.colorTheLayers": {
+            "type": "boolean",
+            "default": true,
+            "description": "Add colors to the layers."
+            },
+            "3dhtmlviewer.colorRandom": {
+            "type": "boolean",
+            "default": false,
+            "description": "Color the layers randomly."
+            },
+            "3dhtmlviewer.hue": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 360,
+            "description": "The default hue value of the laters."
+            },
+            "3dhtmlviewer.gap": {
+            "type": "number",
+            "default": 20,
+            "minimum": 0,
+            "maximum": 100,
+            "description": "The default length of the gap between layers."
+            }
+
+        }
+        },
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "extension.3dhtmlviewer.open",
+                    "when": "resourceLangId == html && !extension.panelActive",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^8.10.25",
+        "typescript": "^2.9.2",
+        "vsce": "^1.54.0",
+        "vscode": "^1.1.26"
+    },
+    "dependencies": {
+        "path": "^0.12.7",
+        "iframe-server": "^1.0.2"
+    }
+}
