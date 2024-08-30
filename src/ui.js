@@ -62,6 +62,7 @@ document.getElementById("refresh").addEventListener("click", function() {
 
 let reloadTimeOut = false;
 iframe.onload = function() {
+    iframe.style.opacity = 0;
     frame.postMessage({ t: 'ijS', c: loadSettings() }, '*');
     frame.postMessage({ t: 'ijS', c: getStateStr() }, '*');
     animation = true;

@@ -80,7 +80,7 @@ function htmlPreview(context: vscode.ExtensionContext) {
         });
 
         vscode.window.onDidChangeActiveTextEditor((editor) => {
-            if (editor && isEditingHTML(editor.document) && editor.document.uri.fsPath !== documentPath && panel) {
+            if (editor && isEditingHTML(editor.document) && panelActiveKey) {
                 const newDocumentPath = editor.document.uri.fsPath;
                 const newRelativePath = newDocumentPath.slice(rootPath.length + 1);
                 const newDocumentName = path.basename(newDocumentPath);
