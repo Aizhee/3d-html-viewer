@@ -22,6 +22,10 @@ A Visual Studio Code extension that allows you to debug your HTML files in a 3D 
 
 ![quickchange](res/gif/quickchange.gif)
 
+- **View Element Details** View information about the element's position, size, layer, etc. 
+
+![info](res/gif/infoonelement.gif)
+
 ## Installation
 
 To install the **3D HTML Viewer** extension, follow these steps:
