@@ -75,7 +75,7 @@
             "type": "string",
             "default": "DOM",
             "enum": ["DOM","Z-INDEX", "BOTH"],
-            "description": "The default mode of the viewer."
+            "description": "Sets the default mode for the stack constructor."
             },
             "3dhtmlviewer.zoom": {
             "type": "number",

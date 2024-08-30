@@ -15,20 +15,21 @@ A Visual Studio Code extension that allows you to preview your HTML files in a 3
 - **Gap Control:** Customize the gap between layers to suit your preferences.
 - **Randomized Colors:** Option to color the layers randomly for a more vibrant experience.
 
-## Commands
-
-- **View HTML in 3D:** `extension.3dhtmlviewer.open`
-  - **Shortcut:** `Ctrl+Shift+3` (Windows/Linux) or `Cmd(⌘)+Shift+3` (Mac)
-  - **Description:** Opens a 3D preview of your current HTML file.
 
 ## Configuration
 
 Default setting can be changed, just press `F1`, search for Open Settings (UI), there you can change the following:
 
+- **Mode (`3dhtmlviewer.mode`):**
+  - Type: `string`
+  - Default: `DOM`
+  - Values: `DOM`, `Z-INDEX`, `BOTH`
+  - Description: Sets the default mode for the stack constructor.
+
 - **Zoom Level (`3dhtmlviewer.zoom`):**
   - Type: `number`
   - Default: `0.8`
-  - Range: `0` to `1`
+  - Range: `0.001` to `2`
   - Description: Sets the default zoom level of the camera.
 
 - **Color the Layers (`3dhtmlviewer.colorTheLayers`):**
@@ -65,7 +66,7 @@ To install the **3D HTML Viewer** extension, follow these steps:
 ## Usage
 
 1. Open an HTML file in VS Code.
-2. Press `Ctrl+Shift+3` (Windows/Linux) or `Cmd+Shift+3` (Mac) to activate the 3D viewer.
+2. Press `Ctrl+Shift+3` (Windows/Linux) or `Cmd(⌘)+Shift+3` (Mac) to activate the 3D viewer.
 3. Customize the view using the available settings.
 
 ## Contributing
