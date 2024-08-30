@@ -1,4 +1,5 @@
 ## How to start 3D HTML Viewer?
+    ⚠️ Important: this extension only works if your HTML has a body tag!
 ( NOTE: this only works if your active editor is an html file )
 - **use shortcut**: just use the shortcut `Ctrl/Cmd(⌘)` + `Shift` + `3` 
 
@@ -6,7 +7,7 @@
 
 ![editorbutton](./res/gif/titleeditor.gif)
 
-- **command palette**: p./ress `F1` type `3D HTML VIEWER` or `View HTML in 3D` and hit enter
+- **command palette**: press `F1` type `3D HTML VIEWER` or `View HTML in 3D` and hit enter
 
 ![commandpalette](./res/gif/commandpalette.gif)
 
@@ -22,9 +23,9 @@
 
 ![recenter](./res/gif/recenter.gif)
 
-- **ref./resh**: reloads the page (also makes any changes in position return to default)
+- **refresh**: reloads the page (also makes any changes in position return to default)
 
-![ref./resh](./res/gif/ref./resh.gif)
+![refresh](./res/gif/refresh.gif)
 
 - **mode**: changes how elements are stacked
 

@@ -2,7 +2,7 @@
     "name": "3d-html-viewer",
     "displayName": "3D HTML Viewer",
     "description": "Preview your HTML files in 3D.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "Aizhe",
     "engines": {
         "vscode": "^1.92.0"

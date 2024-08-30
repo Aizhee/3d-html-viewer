@@ -6,3 +6,6 @@ All notable changes to this project will be documented in this file.
  
 - First stable release
 
+## [1.0.1]
+
+- Inform some issues

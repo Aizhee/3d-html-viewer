@@ -10,6 +10,9 @@ A Visual Studio Code extension that allows you to debug your HTML files in a 3D 
 ## Features
 
 - **3D Visualization:** View your HTML documents in a 3D space.
+    
+    ``⚠️ Important: this only works if your HTML has a body tag!``
+
 - **Custom Stacking:** Render stack of elements by `DOM`, `Z-INDEX` or `BOTH`
 
 ![mode](res/gif/mode.gif)
