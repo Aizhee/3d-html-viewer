@@ -1,8 +1,6 @@
 
 # 3D HTML Viewer
 
-<!-- [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/Aizhe.magiceightball?label=Visual%20Studio%20Marketplace&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball)     [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/Aizhe.magiceightball?label=Installs&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball)     [![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/stars/Aizhe.magiceightball?label=Rating&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball) -->
-
 A Visual Studio Code extension that allows you to debug your HTML files in a 3D perspective. Perfect for visualizing the structure of your HTML documents and exploring the spatial relationships between elements.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O0XNVKI)
@@ -44,6 +42,10 @@ For more info you can read the [guide](GETTINGSTARTED.md)
 ## Contributing
 
 If you encounter any issues or have suggestions for improvements, please visit the [GitHub repository](https://github.com/Aizhee/3d-html-viewer) and submit an issue or pull request.
+
+## Changes
+
+See changelog [here](CHANGELOG.md)
 
 ## License
 
