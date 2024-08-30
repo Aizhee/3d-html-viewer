@@ -134,11 +134,11 @@ function loadSettings() {
     var zoom = document.getElementById("zoom");
     var dropdown = document.getElementById("viewtype");
     
-    color_surface.title += "\nCurrent Value: " + color_surface.checked;
-    color_random.title += "\nCurrent Value: " + color_random.checked;
-    hue.title += "\nCurrent Value: " + hue.value;
-    gap.title += "\nCurrent Value: " + gap.value;
-    zoom.title += "\nCurrent Value: " + zoom.value;
+    color_surface.title = "Add colors to the layers\nCurrent Value: " + color_surface.checked;
+    color_random.title = "Color the layers randomly\nCurrent Value: " + color_random.checked;
+    hue.title = "The hue of the layers\nCurrent Value: " + hue.value;
+    gap.title = "The length of the gap between layers\nCurrent Value: " + gap.value;
+    zoom.title = "The zoom constant of the camera\nCurrent Value: " + zoom.value;
 
     if (dropdown.value === "DOM") {
         zIndexMode = false;
@@ -152,27 +152,27 @@ function loadSettings() {
     }
 
     color_surface.addEventListener("change", function() {
-        color_surface.title += "\nCurrent value: " + color_surface.checked;
+        color_surface.title = "Add colors to the layers\nCurrent value: " + color_surface.checked;
         refreshFrame()
     });
 
     color_random.addEventListener("change", function() {
-        color_random.title += "\nCurrent value: " + color_random.checked;
+        color_random.title = "Color the layers randomly\nCurrent value: " + color_random.checked;
         refreshFrame()
     });
 
     hue.addEventListener("change", function() {
-        hue.title += "\nCurrent value: " + hue.value;
+        hue.title += "The hue of the layers\nCurrent value: " + hue.value;
         refreshFrame()
     });
 
     gap.addEventListener("change", function() {
-        gap.title += "\nCurrent value: " + gap.value;
+        gap.title = "The length of the gap between layers\nCurrent value: " + gap.value;
         refreshFrame()
     });
 
     zoom.addEventListener("change", function() {
-        zoom.title += "\nCurrent value: " + zoom.value;
+        zoom.title = "The zoom constant of the camera\nCurrent value: " + zoom.value;
         refreshFrame()
     });
 
