@@ -1,106 +1,103 @@
 'use strict';
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.panelActiveKey = void 0;
+exports.activate = activate;
+exports.deactivate = deactivate;
 /*
  * 3D HTML Viewer
- * 
+ *
  * An extension for Visual Studio Code that allows you to view your HTML files in 3D.
  *
  * Author: Aizhee
  * Repository: https://github.com/Aizhee/3d-html-viewer
  * License: GPL-3.0
- * 
-*/ 
-
-import * as vscode from 'vscode';
-import * as iframeServer from 'iframe-server';
-import * as path from 'path';
-import * as Constants from './Constants'
-
-export function activate(context: vscode.ExtensionContext) {
+ *
+*/
+const vscode = __importStar(require("vscode"));
+const iframeServer = __importStar(require("iframe-server"));
+const path = __importStar(require("path"));
+const Constants = __importStar(require("./Constants"));
+function activate(context) {
     let disposablePreview = vscode.commands.registerTextEditorCommand('3dhtmlviewer.open', htmlPreview(context));
     context.subscriptions.push(disposablePreview);
 }
-
-export let panelActiveKey = 'extension.panelActive';
-
-function htmlPreview(context: vscode.ExtensionContext) {
-
-    return (textEditor: vscode.TextEditor) => {
-
+exports.panelActiveKey = 'extension.panelActive';
+function htmlPreview(context) {
+    return (textEditor) => {
         if (!isEditingHTML(textEditor.document)) {
             vscode.window.showErrorMessage('3D HTML Viewer can only open HTML files');
             return;
         }
-
         const workspacePath = vscode.workspace.rootPath;
         const documentPath = textEditor.document.uri.fsPath;
-
-        const rootPath =
-            (workspacePath && documentPath.startsWith(workspacePath))
-                ? workspacePath 
-                : path.dirname(documentPath);
-
+        const rootPath = (workspacePath && documentPath.startsWith(workspacePath))
+            ? workspacePath
+            : path.dirname(documentPath);
         const server = iframeServer.start({
             port: 0,
             host: '127.0.0.1',
             root: rootPath,
             open: false,
             wait: 1000,
-            injectJS:`document.body.style.opacity = 0; window.onmessage=e=>{if(e.data.t==="ijS" && e.origin.includes("vscode")){const s=document.createElement("script");s.innerHTML=e.data.c;document.body.appendChild(s);}}`,
+            injectJS: `document.body.style.opacity = 0; window.onmessage=e=>{if(e.data.t==="ijS" && e.origin.includes("vscode")){const s=document.createElement("script");s.innerHTML=e.data.c;document.body.appendChild(s);}}`,
         });
-
         const relativePath = documentPath.slice(rootPath.length + 1);
         const documentName = path.basename(documentPath);
-
-        const panel = vscode.window.createWebviewPanel(
-            'extension.3dhtmlviewer',
-            '3D | ' + documentName,
-            vscode.ViewColumn.Two,
-            {
-                enableScripts: true,
-                localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'res'))]
-            }
-        );
-
-        vscode.commands.executeCommand('setContext', panelActiveKey, true);
-        
-
+        const panel = vscode.window.createWebviewPanel('extension.3dhtmlviewer', '3D | ' + documentName, vscode.ViewColumn.Two, {
+            enableScripts: true,
+            localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'res'))]
+        });
+        vscode.commands.executeCommand('setContext', exports.panelActiveKey, true);
         panel.iconPath = {
-            light: vscode.Uri.file(path.join(context.extensionPath, 'res', 'icons', 'start_preview_light.svg')), 
-            dark: vscode.Uri.file(path.join(context.extensionPath, 'res', 'icons', 'start_preview_dark.svg')) 
+            light: vscode.Uri.file(path.join(context.extensionPath, 'res', 'icons', 'start_preview_light.svg')),
+            dark: vscode.Uri.file(path.join(context.extensionPath, 'res', 'icons', 'start_preview_dark.svg'))
         };
-        
         server.addListener('listening', () => {
             panel.webview.html = provideContent(server, relativePath);
         });
-
         vscode.window.onDidChangeActiveTextEditor((editor) => {
-            if (editor && isEditingHTML(editor.document) && panelActiveKey) {
+            if (editor && isEditingHTML(editor.document) && exports.panelActiveKey) {
                 const newDocumentPath = editor.document.uri.fsPath;
                 const newRelativePath = newDocumentPath.slice(rootPath.length + 1);
                 const newDocumentName = path.basename(newDocumentPath);
-                
                 panel.title = '3D | ' + newDocumentName;
                 panel.webview.html = provideContent(server, newRelativePath);
             }
         });
-
-        panel.onDidDispose(
-            () => {
-                console.log("Shutting down 3d html viewer...");
-                iframeServer.shutdown();
-                vscode.commands.executeCommand('setContext', panelActiveKey, false);
-            },
-            null,
-            context.subscriptions
-        );
+        panel.onDidDispose(() => {
+            console.log("Shutting down 3d html viewer...");
+            iframeServer.shutdown();
+            vscode.commands.executeCommand('setContext', exports.panelActiveKey, false);
+        }, null, context.subscriptions);
     };
 }
-
-function booleanToCheck(value: boolean): string {
-		return value ? 'checked' : '';
-}	
-
-function addScript(path:string, esc:boolean): string {
+function booleanToCheck(value) {
+    return value ? 'checked' : '';
+}
+function addScript(path, esc) {
     let extensionPath = vscode.extensions.getExtension(Constants.ExtensionConstants.EXTENSION_ID).extensionPath;
     let scriptPath = vscode.Uri.file(`${extensionPath}/${path}`);
     let scriptContent = getFileContent(scriptPath);
@@ -111,39 +108,32 @@ function addScript(path:string, esc:boolean): string {
     }
     return scriptContent;
 }
-
-function addStyle(): string {
+function addStyle() {
     let extensionPath = vscode.extensions.getExtension(Constants.ExtensionConstants.EXTENSION_ID).extensionPath;
     let stylePath = vscode.Uri.file(`${extensionPath}/${Constants.ExtensionConstants.CUSTOM_CSS_PATH}`);
     let styleContent = getFileContent(stylePath);
     return styleContent;
 }
-
-function getFileContent(uri: vscode.Uri): string {
+function getFileContent(uri) {
     const fsPath = uri.fsPath;
     const fs = require('fs');
     return fs.readFileSync(fsPath, 'utf8');
 }
-
-function isEditingHTML(document: vscode.TextDocument) {
+function isEditingHTML(document) {
     return document.languageId.toLowerCase() == 'html' || document.fileName.match(/\.html$/);
 }
-
-export function deactivate() {
+function deactivate() {
     console.log("3d html viewer has been deactivated.");
 }
-
-function provideContent(server: any, relativePath: string): string {
+function provideContent(server, relativePath) {
     const port = server.address().port;
-
-	const config = vscode.workspace.getConfiguration('3dhtmlviewer');
-    const mode = config.get<string>('mode', 'DOM');
-	const zoom = config.get<number>('zoom', 0.8);
-	const colorTheLayers = config.get<boolean>('colorTheLayers', true);
-	const colorRandom = config.get<boolean>('colorRandom', false);
-	const hue = config.get<number>('hue', 0);
-	const gap = config.get<number>('gap', 20);
-
+    const config = vscode.workspace.getConfiguration('3dhtmlviewer');
+    const mode = config.get('mode', 'DOM');
+    const zoom = config.get('zoom', 0.8);
+    const colorTheLayers = config.get('colorTheLayers', true);
+    const colorRandom = config.get('colorRandom', false);
+    const hue = config.get('hue', 0);
+    const gap = config.get('gap', 20);
     return `
 		<!DOCTYPE html>
 		<html lang="en">
@@ -248,3 +238,4 @@ function provideContent(server: any, relativePath: string): string {
 		</body>
 	</html>`;
 }
+//# sourceMappingURL=extension.js.map

@@ -3,7 +3,7 @@
 
 A Visual Studio Code extension that allows you to debug your HTML files in a 3D perspective. Perfect for visualizing the structure of your HTML documents and exploring the spatial relationships between elements.
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O0XNVKI)
+<a href='https://ko-fi.com/O4O0XNVKI' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ![preview](res/img/product1.png)
 

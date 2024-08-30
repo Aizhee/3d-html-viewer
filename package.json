@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "publisher": "Aizhe",
     "engines": {
-        "vscode": "^1.23.0"
+        "vscode": "^1.92.0"
     },
     "categories": [
         "Other"
@@ -27,16 +27,22 @@
     },
     "license": "GPL-3.0-only",
     "icon": "res/img/icon.png",
-    "main": "./out/src/extension",
+    "main": "./src/extension",
+    "activationEvents": [],
+    "files": [
+    "out",
+    "src",
+    "res"
+    ],
     "contributes": {
         "commands": [
             {
-                "command": "extension.3dhtmlviewer.open",
+                "command": "3dhtmlviewer.open",
                 "title": "View HTML in 3D",
                 "category": "3D HTML Viewer",
                 "icon": {
-                        "light": "res/icons/start_preview_light.svg",
-                        "dark": "res/icons/start_preview_dark.svg"
+                    "light": "res/icons/start_preview_light.svg",
+                    "dark": "res/icons/start_preview_dark.svg"
                 },
                 "when": "editorLangId == html && !extension.panelActive",
                 "precondition": "editorLangId == html",
@@ -45,83 +51,86 @@
         ],
         "keybindings": [
             {
-                "command": "extension.3dhtmlviewer.open",
+                "command": "3dhtmlviewer.open",
                 "key": "ctrl+shift+3",
                 "mac": "cmd+shift+3",
                 "when": "resourceLangId == html && !extension.panelActive"
             }
         ],
         "walkthroughs": [
-			{
-				"id": "onboarding",
-				"title": "Get Started with 3D HTML Viewer",
-				"description": "Learn more on how you can view your HTML in 3D",
-				"steps": [
-					{
-						"id": "index",
-						"title": "Read getting started guide",
-						"media": {
-							"markdown": "GETTINGSTARTED.md"
-						}
-					}
-				]
-			}
-		],
-        "configuration": {
-        "type": "object",
-        "title": "3D HTML Viewer",
-        "properties": {
-            "3dhtmlviewer.mode": {
-            "type": "string",
-            "default": "DOM",
-            "enum": ["DOM","Z-INDEX", "BOTH"],
-            "description": "Sets the default mode for the stack constructor."
-            },
-            "3dhtmlviewer.zoom": {
-            "type": "number",
-            "default": 0.8,
-            "minimum": 0.1,
-            "maximum": 2,
-            "description": "The default zoom constant of the camera."
-            },
-            "3dhtmlviewer.colorTheLayers": {
-            "type": "boolean",
-            "default": true,
-            "description": "Add colors to the layers."
-            },
-            "3dhtmlviewer.colorRandom": {
-            "type": "boolean",
-            "default": false,
-            "description": "Color the layers randomly."
-            },
-            "3dhtmlviewer.hue": {
-            "type": "number",
-            "default": 0,
-            "minimum": 0,
-            "maximum": 360,
-            "description": "The default hue value of the laters."
-            },
-            "3dhtmlviewer.gap": {
-            "type": "number",
-            "default": 20,
-            "minimum": 0,
-            "maximum": 100,
-            "description": "The default length of the gap between layers."
+            {
+                "id": "onboarding",
+                "title": "Get Started with 3D HTML Viewer",
+                "description": "Learn more on how you can view your HTML in 3D",
+                "steps": [
+                    {
+                        "id": "index",
+                        "title": "Read getting started guide",
+                        "media": {
+                            "markdown": "GETTINGSTARTED.md"
+                        }
+                    }
+                ]
             }
-
-        }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "3D HTML Viewer",
+            "properties": {
+                "3dhtmlviewer.mode": {
+                    "type": "string",
+                    "default": "DOM",
+                    "enum": [
+                        "DOM",
+                        "Z-INDEX",
+                        "BOTH"
+                    ],
+                    "description": "Sets the default mode for the stack constructor."
+                },
+                "3dhtmlviewer.zoom": {
+                    "type": "number",
+                    "default": 0.8,
+                    "minimum": 0.1,
+                    "maximum": 2,
+                    "description": "The default zoom constant of the camera."
+                },
+                "3dhtmlviewer.colorTheLayers": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Add colors to the layers."
+                },
+                "3dhtmlviewer.colorRandom": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Color the layers randomly."
+                },
+                "3dhtmlviewer.hue": {
+                    "type": "number",
+                    "default": 0,
+                    "minimum": 0,
+                    "maximum": 360,
+                    "description": "The default hue value of the laters."
+                },
+                "3dhtmlviewer.gap": {
+                    "type": "number",
+                    "default": 20,
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "The default length of the gap between layers."
+                }
+            }
         },
         "menus": {
             "editor/title": [
                 {
-                    "command": "extension.3dhtmlviewer.open",
+                    "command": "3dhtmlviewer.open",
                     "when": "resourceLangId == html && !extension.panelActive",
                     "group": "navigation"
                 }
             ],
             "explorer/context": [
                 {
-                    "command": "extension.3dhtmlviewer.open",
+                    "command": "3dhtmlviewer.open",
                     "when": "resourceLangId == html && !extension.panelActive",
                     "group": "navigation"
                 }
@@ -132,18 +141,17 @@
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
         "@types/mocha": "^2.2.42",
         "@types/node": "^8.10.25",
-        "typescript": "^2.9.2",
-        "vsce": "^1.54.0",
-        "vscode": "^1.1.26"
+        "@types/vscode": "^1.92.0",
+        "typescript": "^5.3.3"
     },
     "dependencies": {
-        "path": "^0.12.7",
-        "iframe-server": "^1.0.2"
+        "@vscode/vsce": "^3.0.0",
+        "iframe-server": "^1.0.2",
+        "path": "^0.12.7"
     }
 }

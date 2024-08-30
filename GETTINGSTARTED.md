@@ -4,35 +4,35 @@
 
 - **editor button**: while your editor has an opened html, you can click on the dedicated button
 
-![editorbutton](res/gif/titleeditor.gif)
+![editorbutton](./res/gif/titleeditor.gif)
 
-- **command palette**: press `F1` type `3D HTML VIEWER` or `View HTML in 3D` and hit enter
+- **command palette**: p./ress `F1` type `3D HTML VIEWER` or `View HTML in 3D` and hit enter
 
-![commandpalette](res/gif/commandpalette.gif)
+![commandpalette](./res/gif/commandpalette.gif)
 
 - **context menu**:  right-click any html file and choose `View HTML in 3D`
 
-![contextmenu](res/gif/contextmenu.gif)
+![contextmenu](./res/gif/contextmenu.gif)
 
 ## Toolbar controls
 
-![toolbar](res/img/toolbar.png)
+![toolbar](./res/img/toolbar.png)
 
 - **recenter**: recenters the camera
 
-![recenter](res/gif/recenter.gif)
+![recenter](./res/gif/recenter.gif)
 
-- **refresh**: reloads the page (also makes any changes in position return to default)
+- **ref./resh**: reloads the page (also makes any changes in position return to default)
 
-![refresh](res/gif/refresh.gif)
+![ref./resh](./res/gif/ref./resh.gif)
 
 - **mode**: changes how elements are stacked
 
-![mode](res/gif/mode.gif)
+![mode](./res/gif/mode.gif)
 
 - **settings**: different settings to change on how elements are rendered
 
-![settings](res/gif/settings.gif)
+![settings](./res/gif/settings.gif)
 
 
 | **Setting**                         | **Type**  | **Default** | **Values/Range**      | **Description**                                             |
@@ -48,26 +48,26 @@
 
 - **Left click drag**: rotate
 
-![rotation](res/gif/leftclickdrag.gif)
+![rotation](./res/gif/leftclickdrag.gif)
 
 - **Right click drag**: translate/dragging (also repositions the rotation center)
 
-![rotation](res/gif/rightclickdrag.gif)
+![rotation](./res/gif/rightclickdrag.gif)
 
 - **Scrollwheel**: scrolls the page
 
-![scroll](res/gif/scrollwheel.gif)
+![scroll](./res/gif/scrollwheel.gif)
 
 - **Alt + Scrollwheel**: zooms the camera
 
-![zoomscroll](res/gif/alt+scrollwheel.gif)
+![zoomscroll](./res/gif/alt+scrollwheel.gif)
 
 - **Hover on an Element**: shows info about the element
 
-![hover](res/gif/infoonelement.gif)
+![hover](./res/gif/infoonelement.gif)
 
 ## Change default settings
 
 changing default settings on the renderer is easy, just press `F1` search for `Preferences: Open Settings (UI)` and search for `3D HTML Viewer`
 
-![default settings](res/gif/defaultsettings.gif)
+![default settings](./res/gif/defaultsettings.gif)
