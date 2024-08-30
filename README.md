@@ -29,7 +29,7 @@ Default setting can be changed, just press `F1`, search for Open Settings (UI), 
 - **Zoom Level (`3dhtmlviewer.zoom`):**
   - Type: `number`
   - Default: `0.8`
-  - Range: `0.001` to `2`
+  - Range: `0.1` to `2`
   - Description: Sets the default zoom level of the camera.
 
 - **Color the Layers (`3dhtmlviewer.colorTheLayers`):**

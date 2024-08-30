@@ -214,7 +214,7 @@ function provideContent(server: any, relativePath: string): string {
                             <tr>
 								<td>
 									<label for="zoom">Zoom</label><br/>
-                                    <input title="The zoom constant of the camera" id="zoom" name="zoom" class="extra-menu-nav" type="range" min="0.001" max="2" value="${zoom}" step="0.1"></input>
+                                    <input title="The zoom constant of the camera" id="zoom" name="zoom" class="extra-menu-nav" type="range" min="0.1" max="2" value="${zoom}" step="0.1"></input>
 								</td>
 							</tr>
 							<tr>

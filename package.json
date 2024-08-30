@@ -80,7 +80,7 @@
             "3dhtmlviewer.zoom": {
             "type": "number",
             "default": 0.8,
-            "minimum": 0.001,
+            "minimum": 0.1,
             "maximum": 2,
             "description": "The default zoom constant of the camera."
             },
