@@ -125,6 +125,7 @@ function getStateStr(){
         };`;
 }
 
+
 function loadSettings() {
     var color_surface = document.getElementById("color_surface");
     var color_random = document.getElementById("color_random");
@@ -133,23 +134,45 @@ function loadSettings() {
     var zoom = document.getElementById("zoom");
     var dropdown = document.getElementById("viewtype");
     
+    color_surface.title += "\nCurrent Value: " + color_surface.checked;
+    color_random.title += "\nCurrent Value: " + color_random.checked;
+    hue.title += "\nCurrent Value: " + hue.value;
+    gap.title += "\nCurrent Value: " + gap.value;
+    zoom.title += "\nCurrent Value: " + zoom.value;
+
+    if (dropdown.value === "DOM") {
+        zIndexMode = false;
+        bothMode = false;
+    } else if (dropdown.value === "Z-INDEX") {
+        zIndexMode = true;
+        bothMode = false;
+    } else if (dropdown.value === "BOTH") {
+        zIndexMode = false;
+        bothMode = true;
+    }
+
     color_surface.addEventListener("change", function() {
+        color_surface.title += "\nCurrent value: " + color_surface.checked;
         refreshFrame()
     });
 
     color_random.addEventListener("change", function() {
+        color_random.title += "\nCurrent value: " + color_random.checked;
         refreshFrame()
     });
 
     hue.addEventListener("change", function() {
+        hue.title += "\nCurrent value: " + hue.value;
         refreshFrame()
     });
 
     gap.addEventListener("change", function() {
+        gap.title += "\nCurrent value: " + gap.value;
         refreshFrame()
     });
 
     zoom.addEventListener("change", function() {
+        zoom.title += "\nCurrent value: " + zoom.value;
         refreshFrame()
     });
 
@@ -181,18 +204,4 @@ function refreshFrame() {
     }, 350);}
 }
 
-function loadStateFromStorage() {
-    var color_surface = document.getElementById("color_surface");
-    var color_random = document.getElementById("color_random");
-    var hue = document.getElementById("hue");
-    var gap = document.getElementById("gap");
-    var zoom = document.getElementById("zoom");
-
-    color_surface.checked = localStorage.getItem("color_surface") === "true";
-    color_random.checked = localStorage.getItem("color_random") === "true";
-    hue.value = localStorage.getItem("hue") || 0;
-    gap.value = localStorage.getItem("gap") || 20;
-    zoom.value = localStorage.getItem("zoom") || 0;
-    loadSettings();
-}
 //-----------------------------------------------------------

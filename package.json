@@ -40,7 +40,6 @@
                 },
                 "when": "editorLangId == html && !extension.panelActive",
                 "precondition": "editorLangId == html",
-
                 "description": "Preview your HTML files in 3D."
             }
         ],
@@ -52,10 +51,32 @@
                 "when": "resourceLangId == html && !extension.panelActive"
             }
         ],
+        "walkthroughs": [
+			{
+				"id": "onboarding",
+				"title": "Get Started with 3D HTML Viewer",
+				"description": "Learn more on how you can view your HTML in 3D",
+				"steps": [
+					{
+						"id": "index",
+						"title": "Read getting started guide",
+						"media": {
+							"markdown": "GETTINGSTARTED.md"
+						}
+					}
+				]
+			}
+		],
         "configuration": {
         "type": "object",
         "title": "3D HTML Viewer",
         "properties": {
+            "3dhtmlviewer.mode": {
+            "type": "string",
+            "default": "DOM",
+            "enum": ["DOM","Z-INDEX", "BOTH"],
+            "description": "The default mode of the viewer."
+            },
             "3dhtmlviewer.zoom": {
             "type": "number",
             "default": 0.8,
@@ -96,6 +117,12 @@
                     "command": "extension.3dhtmlviewer.open",
                     "when": "resourceLangId == html && !extension.panelActive",
                     "group": "navigation"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "extension.3dhtmlviewer.open",
+                    "when": "resourceLangId == html && !extension.panelActive"
                 }
             ]
         }

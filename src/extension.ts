@@ -143,6 +143,7 @@ function provideContent(server: any, relativePath: string): string {
     const port = server.address().port;
 
 	const config = vscode.workspace.getConfiguration('3dhtmlviewer');
+    const mode = config.get<string>('mode', 'DOM');
 	const zoom = config.get<number>('zoom', 0.8);
 	const colorTheLayers = config.get<boolean>('colorTheLayers', true);
 	const colorRandom = config.get<boolean>('colorRandom', false);
@@ -184,9 +185,9 @@ function provideContent(server: any, relativePath: string): string {
 							</i></button>
 
                             <select id="viewtype" class="viewtype" title="Mode">
-                                <option value="DOM">DOM</option>
-                                <option value="Z-INDEX">Z-INDEX</option>
-                                <option value="BOTH">BOTH</option>
+                                <option value="DOM" ${mode === 'DOM' ? 'selected' : ''}>DOM</option>
+                                <option value="Z-INDEX" ${mode === 'Z-INDEX' ? 'selected' : ''}>Z-INDEX</option>
+                                <option value="BOTH" ${mode === 'BOTH' ? 'selected' : ''}>BOTH</option>
                             </select>
 
 							<button
