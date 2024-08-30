@@ -122,7 +122,8 @@
             "explorer/context": [
                 {
                     "command": "extension.3dhtmlviewer.open",
-                    "when": "resourceLangId == html && !extension.panelActive"
+                    "when": "resourceLangId == html && !extension.panelActive",
+                    "group": "navigation"
                 }
             ]
         }

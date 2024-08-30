@@ -3,56 +3,26 @@
 
 <!-- [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/Aizhe.magiceightball?label=Visual%20Studio%20Marketplace&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball)     [![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/Aizhe.magiceightball?label=Installs&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball)     [![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/stars/Aizhe.magiceightball?label=Rating&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Aizhe.magiceightball) -->
 
-A Visual Studio Code extension that allows you to preview your HTML files in a 3D perspective. Perfect for visualizing the structure of your HTML documents and exploring the spatial relationships between elements.
+A Visual Studio Code extension that allows you to debug your HTML files in a 3D perspective. Perfect for visualizing the structure of your HTML documents and exploring the spatial relationships between elements.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O0XNVKI)
+
+![preview](res/img/product1.png)
 
 ## Features
 
 - **3D Visualization:** View your HTML documents in a 3D space.
-- **Customizable Zoom:** Adjust the camera zoom level to focus on specific elements.
-- **Layer Colors:** Apply colors to layers for better differentiation.
-- **Gap Control:** Customize the gap between layers to suit your preferences.
-- **Randomized Colors:** Option to color the layers randomly for a more vibrant experience.
+- **Custom Stacking:** Render stack of elements by `DOM`, `Z-INDEX` or `BOTH`
 
+![mode](res/gif/mode.gif)
 
-## Configuration
+- **Reload on Save:** Any saved changes will automatically be reflected in the renderer 
 
-Default setting can be changed, just press `F1`, search for Open Settings (UI), there you can change the following:
+![livereload](res/gif/livereloadonsave.gif)
 
-- **Mode (`3dhtmlviewer.mode`):**
-  - Type: `string`
-  - Default: `DOM`
-  - Values: `DOM`, `Z-INDEX`, `BOTH`
-  - Description: Sets the default mode for the stack constructor.
+- **Quick HTML Change:** Changes rendered HTML based on which editor is active (as long as its a valid HTML)
 
-- **Zoom Level (`3dhtmlviewer.zoom`):**
-  - Type: `number`
-  - Default: `0.8`
-  - Range: `0.1` to `2`
-  - Description: Sets the default zoom level of the camera.
-
-- **Color the Layers (`3dhtmlviewer.colorTheLayers`):**
-  - Type: `boolean`
-  - Default: `true`
-  - Description: Enables or disables coloring the layers.
-
-- **Randomize Colors (`3dhtmlviewer.colorRandom`):**
-  - Type: `boolean`
-  - Default: `false`
-  - Description: Colors the layers randomly when enabled.
-
-- **Hue (`3dhtmlviewer.hue`):**
-  - Type: `number`
-  - Default: `0`
-  - Range: `0` to `360`
-  - Description: Sets the default hue value of the layers.
-
-- **Gap Between Layers (`3dhtmlviewer.gap`):**
-  - Type: `number`
-  - Default: `20`
-  - Range: `0` to `100`
-  - Description: Controls the gap distance between layers.
+![quickchange](res/gif/quickchange.gif)
 
 ## Installation
 
@@ -68,6 +38,8 @@ To install the **3D HTML Viewer** extension, follow these steps:
 1. Open an HTML file in VS Code.
 2. Press `Ctrl+Shift+3` (Windows/Linux) or `Cmd(⌘)+Shift+3` (Mac) to activate the 3D viewer.
 3. Customize the view using the available settings.
+
+For more info you can read the [guide](GETTINGSTARTED.md)
 
 ## Contributing
 

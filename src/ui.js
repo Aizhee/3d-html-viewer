@@ -61,6 +61,10 @@ document.getElementById("refresh").addEventListener("click", function() {
     animation = false;
     refreshFrame();
 });
+
+iframe.addEventListener("load", function() {
+    iframe.style.opacity = 0;
+});
 //------------------- Onload Functions -------------------
 
 let reloadTimeOut = false;
@@ -201,7 +205,7 @@ function refreshFrame() {
     setTimeout(function() {
         frame.postMessage({ t: 'callFnct', c: 'reload' }, '*');
         timeout = false;
-    }, 350);}
+    }, 300);}
 }
 
 //-----------------------------------------------------------

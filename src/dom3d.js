@@ -11,6 +11,10 @@
       reload();
     }
   }
+//---------------------- Constants/Var ----------------------
+  const body = document.body;
+  const html = document.documentElement;
+  const wrapper = document.createElement("div");
 //---------------- Functions called by UI ------------------
   function updateState(){
     body.style.transform = getBodyTransform();
@@ -27,9 +31,7 @@
     location.reload();
   }
 //------------------- Initialize Document ------------------ 
-  const body = document.body;
-  const html = document.documentElement;
-  const wrapper = document.createElement("div");
+  body.style.opacity = 0;
   
   body.classList.add("dom3d-enabled");
   wrapper.classList.add("dom3d-wrapper");
@@ -51,6 +53,7 @@
       state.animationInit = true;
     }, 100);
   }
+
 //-------------------- Functions ---------------------------  
   // Z-Index repositioning
   function repositionZIndexElements() {
@@ -126,6 +129,7 @@
         traverseDOM(node, depthLevel + 1, offsetX, offsetY);
       });
     }
+    body.style.opacity = 1;
   }
 
   function firstLayer(zIndexOrder) {
@@ -222,10 +226,11 @@
     body.style.overflow = "auto";
     body.style.position = "absolute";
     body.style.transformStyle = "preserve-3d";
-    body.style.transition = "transform 0.2s ease-out";
     body.style.perspective = "1000px";
-    body.style.perspectiveOrigin =
-      body.style.transformOrigin = `${perspectiveOriginX}px ${perspectiveOriginY}px`;
+    body.style.opacity = 0;
+    body.transition = "transform 0.5s ease-out, opacity 0.5s ease-out";
+    body.style.perspectiveOrigin = `${perspectiveOriginX}px ${perspectiveOriginY}px`;
+    body.style.transformOrigin = `${perspectiveOriginX}px ${perspectiveOriginY}px`;
   }
   
   function handlePointerDown(event) {

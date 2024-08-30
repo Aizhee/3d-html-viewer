@@ -42,7 +42,11 @@ iframe {
     border: none;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
 }
 
 .rightmost-nav {

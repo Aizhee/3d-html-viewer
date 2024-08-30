@@ -45,7 +45,7 @@ function htmlPreview(context: vscode.ExtensionContext) {
             root: rootPath,
             open: false,
             wait: 1000,
-            injectJS:`window.onmessage=e=>{if(e.data.t==="ijS" && e.origin.includes("vscode")){const s=document.createElement("script");s.innerHTML=e.data.c;document.body.appendChild(s);}}`,
+            injectJS:`document.body.style.opacity = 0; window.onmessage=e=>{if(e.data.t==="ijS" && e.origin.includes("vscode")){const s=document.createElement("script");s.innerHTML=e.data.c;document.body.appendChild(s);}}`,
         });
 
         const relativePath = documentPath.slice(rootPath.length + 1);
