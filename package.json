@@ -59,8 +59,8 @@
             "3dhtmlviewer.zoom": {
             "type": "number",
             "default": 0.8,
-            "minimum": 0,
-            "maximum": 1,
+            "minimum": 0.001,
+            "maximum": 2,
             "description": "The default zoom constant of the camera."
             },
             "3dhtmlviewer.colorTheLayers": {

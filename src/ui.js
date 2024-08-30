@@ -16,7 +16,10 @@ window.addEventListener('message', function(event) {
             break;
         case 'closeSubMenu':
             closeSubMenu();
-            break;   
+            break;
+        case 'changeZoom':
+            document.getElementById("zoom").value = data;
+            break;       
     }
 });
 //------------------- Event Listeners -----------------------

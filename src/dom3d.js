@@ -250,6 +250,7 @@
       let posy = window.innerHeight / 2;
       body.style.transformOrigin = `${posx}px ${posy}px`;
       body.style.transform = getBodyTransform();
+      window.parent.postMessage({ action: 'changeZoom', data: state.zoomLevel }, '*');
     } else {
       event.stopPropagation();
       event.preventDefault();
